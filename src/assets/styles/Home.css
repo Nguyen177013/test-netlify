@@ -8,6 +8,8 @@
     min-height: 350px;
     color: white;
     padding: 45px 23px;
+    display: flex;
+    flex-direction: column;
 }
 .Home .Home__title{
     font-size: 3rem;
@@ -15,6 +17,7 @@
 .Home .Home__para{
     margin-top: 5rem;
     font-size: 1.5rem;
+    flex: 1;
 }
 .Home .Home__btn{
     margin-top: 4.5rem;
@@ -27,4 +30,25 @@
     padding: 24px 0;
     background-color: #FF8C38;
     border-radius: 8px;
+    
+}
+.Home .btn__van:before,.Home .btn__van:after{
+    position: absolute;
+    content: '';
+    background-color: rgba(255,255,255,0.4);
+}
+.Home .btn__van:hover{
+    animation: wiggle 0.6s;
+}
+
+@keyframes wiggle{
+    25%{
+	transform: scale(0.8,1.3);
+    }
+    50%{
+	transform: scale(1.1,0.8);
+    }
+    75%{
+	transform: scale(0.7,1.2);
+    }
 }
