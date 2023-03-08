@@ -1,0 +1,30 @@
+.Home{
+    height: calc(100vh - 128px - 74px);
+    background:  url("https://s3-alpha-sig.figma.com/img/050a/aa4a/9b62f902c3de6d1b54b3a5d23341752c?Expires=1679270400&Signature=mTsxWxRAfs2B6PX9t3NKw6XBVJqmzqZoUdTip7hAMgz1cH-BSxGRKYv14bIiw-cO98f0CkC4OZ5~oBWlRx-ecnPepgAtLPm9FaXG9aMokMF-TmdbtHQ4toCXchgYHhU4CPqlKczPmsm3ovker8856lwUTaGdtYSgokuu4zdax91kUCScG52XypczK39koiVCn-Z9bUSzmd54Ff9E6WCKJewUH1eftiyVGjfFY~iAmuo~SjoxPhRJZykdmuxMx9HDn021oqqEXM04SwkY2irbuxugPt37lSdjvtddyx2ggdgIk0rhbhxbaPdwn3wVG~7A-Qc5oQvtzl0aBae6eD0P7A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 350px;
+    color: white;
+    padding: 45px 23px;
+}
+.Home .Home__title{
+    font-size: 3rem;
+}
+.Home .Home__para{
+    margin-top: 5rem;
+    font-size: 1.5rem;
+}
+.Home .Home__btn{
+    margin-top: 4.5rem;
+}
+.Home .btn__van{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    text-align: center;
+    padding: 24px 0;
+    background-color: #FF8C38;
+    border-radius: 8px;
+}
