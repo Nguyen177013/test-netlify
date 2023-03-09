@@ -6,7 +6,7 @@ const Navbar = (props) => {
             <Link className="nav__logo" to={"/"}>#vanlife</Link>
             <div className="nav__ancs">
             <Link className="nav__anc" to={"/about"} >About</Link>
-            <Link className="nav__anc" to={"/"}>Vans</Link>
+            <Link className="nav__anc" to={"/vans"}>Vans</Link>
             </div>
         </nav>
      );

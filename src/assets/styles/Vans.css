@@ -1,0 +1,73 @@
+.vans__container{
+    padding: 15px 35px;
+}
+.vans__options{
+    margin-top: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.vans__options .option__clear{
+    border-bottom: 1.8px solid #000;
+    cursor: pointer;
+}
+.btn{
+    border: none;
+    padding: 15px 50px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.option__btn{
+    background-color: #FFEAD0;
+}
+.list__vans{
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.van{
+    margin: 25px 30px;
+    flex-basis:  calc((100% / 4) - 60px);
+}
+.van__img{
+    /* width: 299px; */
+    height: 310px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.van__intel{
+    margin-top: 15px;
+    display: flex;
+}
+.van__intel .van__name{
+    flex: 1;
+}
+.van__intel .van__price{
+    display: flex;
+    flex-direction: column;
+}
+.van__intel .van__price .price{
+    font-size: 20px;
+    font-weight: 800;
+}
+.van__intel .van__price .per__day{
+    margin-left: auto;
+}
+.van__img img{
+    width: 100%;
+    height: 100%;
+}
+.simple{
+    background-color: #E17654;
+    color: #fff;
+}
+.luxury{
+    background-color: #161616;
+    color: #fff;
+}
+.rugged{
+    background-color: #115E59;
+    color: #fff;
+}
