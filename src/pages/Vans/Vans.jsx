@@ -1,6 +1,7 @@
-import "../assets/styles/Vans.css";
+import "../../assets/styles/Vans.css";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import VanItems from "./VanItem";
+import VanItems from "../Vans/VanItem";
 const Vans = ({url}) => {
     const [vans, setVans] = useState(null);
     const [pending, setPending] = useState(true);
@@ -29,7 +30,12 @@ const Vans = ({url}) => {
                 </div>
                 <div className="list__vans">
                     {pending && <p>Please Wait for the server...</p>}
-                    {vans && vans.map(van=>(<VanItems key = {van.id} {...van}></VanItems>))}
+                    {vans && vans.map(van=>(
+                    <Link to={`/vans/${van.id}` } key = {van.id} className="van">
+                    <VanItems {...van}></VanItems>
+                    </Link>
+                    ))
+                }
                 </div>
             </div>
         </div>

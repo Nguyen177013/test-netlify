@@ -1,6 +1,6 @@
 const VanItems = (props) => {
     return (
-        <div className="van">
+        <div className="van border">
             <div className="van__img">
                 <img src={props.imageUrl} alt="van-name" />
             </div>

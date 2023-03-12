@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../assets/styles/Home.css";
-const Home = ({ count }) => {
+const Home = (props) => {
     return (
         <div className="Home">
             <h1 className="Home__title">You got the travel plans, we got the travel vans.</h1>

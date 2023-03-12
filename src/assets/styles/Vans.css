@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+    color: #000;
+}
 .vans__container{
     padding: 15px 35px;
 }
@@ -30,6 +34,28 @@
 .van{
     margin: 25px 30px;
     flex-basis:  calc((100% / 4) - 60px);
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+}
+.van:hover{
+    height: 100%;
+}
+.van::before{
+    content:"";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: #000;
+}
+.van:hover::before, .van:hover::after{
+    width: 100%;
+}
+.border::before{
+    left: 0;
+    top: -10px;
 }
 .van__img{
     /* width: 299px; */
