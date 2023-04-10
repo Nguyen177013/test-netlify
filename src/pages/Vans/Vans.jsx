@@ -21,6 +21,7 @@ const Vans = ({ url }) => {
             })
     }, [url])
     const displayVan = (typeFilter && vans) ? vans.filter(van => van.type === typeFilter) : vans;
+    console.log(typeFilter);
     return (
         <div className="container">
             <div className="vans__container">
@@ -38,15 +39,23 @@ const Vans = ({ url }) => {
                         className="option__btn btn"
                         onClick={() => setSearchParams({ type: "rugged" })}
                     >Rugged</button>
-                    <p
-                        className="option__clear"
-                        onClick={() => setSearchParams()}
-                    >Clear filters</p>
+                    {typeFilter &&
+                        (<p
+                            className="option__clear"
+                            onClick={() => setSearchParams()}
+                        >Clear filters</p>)
+                    }
                 </div>
                 <div className="list__vans">
                     {pending && <p>Please Wait for the server...</p>}
                     {vans && displayVan.map(van => (
-                        <Link to={`/vans/${van.id}`} key={van.id} className="van">
+                        <Link to={van.id}
+                            key={van.id}
+                            className="van"
+                            state={{ 
+                                search: searchParams.toString(), 
+                                type:typeFilter}}
+                        >
                             <VanItems {...van}></VanItems>
                         </Link>
                     ))

@@ -34,7 +34,7 @@ function App() {
             <Route path='income' element={<HostIncome />} />
             <Route path='reviews' element={<HostReviews />} />
             <Route path='vans' element={<HostVans url={url} />} />
-            <Route path='vans/:id' element={<HostVansDetail/>}>
+            <Route path='vans/:id' element={<HostVansDetail />}>
               <Route index element={<HostVanInfo />} />
               <Route path="price" element={<HostVanPricing />} />
               <Route path="photos" element={<HostVanPhotos />} />
@@ -42,6 +42,7 @@ function App() {
           </Route>
           <Route path='*' element={<NotFound />} />
         </Route>
+        <Route path="*" element={<h1>Page not found!</h1>} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>

@@ -19,7 +19,7 @@ const HostVans = ({ url }) => {
     }, [url])
     const hostVansEls = vans && vans.map(van => (
         <Link
-            to={`/host/vans/${van.id}`}
+            to={van.id}
             key={van.id}
             className="host-van-link-wrapper"
         >
