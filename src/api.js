@@ -15,7 +15,6 @@ export async function loginUser(creds) {
     const {email, password} = creds;
     const res = await fetch(`http://localhost:8080/user?email=${email}&password=${password}`)
     const data = await res.json()
-
     if (!res.ok) {
         throw {
             message: data.message,
@@ -23,6 +22,5 @@ export async function loginUser(creds) {
             status: res.status
         }
     }
-
     return data
 }

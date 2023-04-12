@@ -21,7 +21,7 @@ import { loader as detailLoader } from "./pages/Vans/VansDetail";
 import { loader } from "./pages/Vans/Vans";
 import { loader as loginLoader } from "./pages/Login";
 import { requireAuth } from "./util";
-
+import { action } from "./pages/Login";
 
 function App() {
   const url = "http://localhost:8080/vans";
@@ -42,7 +42,7 @@ function App() {
           <Route path="photos" element={<HostVanPhotos />} />
         </Route>
       </Route>
-      <Route path="login" element={<Login/>} loader={loginLoader}/>
+      <Route path="login" element={<Login/>} loader={loginLoader} action={action}/>
       <Route path="*" element={<NotFound/>} />
     </Route>
   ))
