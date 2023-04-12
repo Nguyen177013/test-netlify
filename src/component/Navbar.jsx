@@ -13,7 +13,7 @@ export default function Header() {
             <Link className="site-logo" to="/">#VanLife</Link>
             <nav>
                 <NavLink 
-                    to="/host"
+                    to="host"
                     style={({isActive}) => isActive ? activeStyles : null}
                 >
                     Host
@@ -30,6 +30,12 @@ export default function Header() {
                 >
                     Vans
                 </NavLink>
+                <Link to="login" className="login-link">
+                    <img 
+                        src="https://cdn-icons-png.flaticon.com/512/6386/6386976.png" 
+                        className="login-icon"
+                    />
+                </Link>
             </nav>
         </header>
     )

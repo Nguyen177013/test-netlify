@@ -1,27 +1,30 @@
 import "../../assets/styles/Vans.css";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import { useState, useEffect } from "react";
 import VanItems from "../Vans/VanItem";
-const Vans = ({ url }) => {
+import getVans from "../../api";
+export function loader(){
+    return getVans();
+}
+const Vans = () => {
     const [searchParams, setSearchParams] = useSearchParams();
+    const data = useLoaderData();
     const typeFilter = searchParams.get("type");
-    const [vans, setVans] = useState(null);
-    const [pending, setPending] = useState(true);
-    useEffect(() => {
-        fetch(url)
-            .then(res => {
-                if (!res.ok) {
-                    throw Error("Server can not fetch the url please try again!");
-                }
-                return res.json();
-            })
-            .then(data => {
-                setVans(data);
-                setPending(false);
-            })
-    }, [url])
-    const displayVan = (typeFilter && vans) ? vans.filter(van => van.type === typeFilter) : vans;
-    console.log(typeFilter);
+    const [isError, setError] = useState("");
+    const displayVans = typeFilter ? data.filter(van => van.type === typeFilter) : data;
+    const vanElements = displayVans.map(
+        van => (
+            <Link to={van.id}
+                key={van.id}
+                className="van"
+                state={{ 
+                    search: searchParams.toString(), 
+                    type:typeFilter}}
+            >
+                <VanItems {...van}></VanItems>
+            </Link>
+        )
+    )
     return (
         <div className="container">
             <div className="vans__container">
@@ -47,19 +50,8 @@ const Vans = ({ url }) => {
                     }
                 </div>
                 <div className="list__vans">
-                    {pending && <p>Please Wait for the server...</p>}
-                    {vans && displayVan.map(van => (
-                        <Link to={van.id}
-                            key={van.id}
-                            className="van"
-                            state={{ 
-                                search: searchParams.toString(), 
-                                type:typeFilter}}
-                        >
-                            <VanItems {...van}></VanItems>
-                        </Link>
-                    ))
-                    }
+                    {isError && <p>{isError}</p>}
+                    {vanElements}
                 </div>
             </div>
         </div>
