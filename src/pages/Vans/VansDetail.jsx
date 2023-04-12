@@ -1,18 +1,22 @@
-import { useParams, Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useLocation, useLoaderData } from "react-router-dom";
 import "../../assets/styles/VanDetail.css";
+import getVans from "../../api";
+
+export function loader({ params }) {
+    console.log(params);
+    return getVans(params);
+}
 
 const VanDetail = (props) => {
-    const params = useParams();
     const location = useLocation();
-    console.log(location);
-    const [van, setVan] = useState(null)
-    useEffect(() => {
-        fetch(`http://localhost:8080/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => setVan(data))
-    }, [params.id])
-    const backLocation = location?.state?.search==""?"":location?.state?.search;
+    const van = useLoaderData();
+    // setVan(data);
+    // useEffect(() => {
+    //     fetch(`http://localhost:8080/vans/${params.id}`)
+    //         .then(res => res.json())
+    //         .then(data => setVan(data))
+    // }, [params.id])
+    const backLocation = location?.state?.search == "" ? "" : location?.state?.search;
     const type = location.state.type || "all";
     return (
         <div className="van-detail-container">

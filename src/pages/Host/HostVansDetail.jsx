@@ -1,20 +1,10 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import { useParams, Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 const HostVansDetail = () => {
     const params = useParams();
-    const [currentVan, setCurrentVan] = useState(null);
-    const [isPending, setPending] = useState(true);
-    useEffect(() => {
-        fetch(`http://localhost:8080/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => {
-                setCurrentVan(data);
-                setPending(false);
-            })
-    }, [params.id])
+    const currentVan = useLoaderData();
     return (
         <section>
-            {isPending && <p>Please Wait for the server...</p>}
             {currentVan && (
                 <>
                     <Link

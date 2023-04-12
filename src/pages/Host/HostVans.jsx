@@ -1,22 +1,7 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import HostVanItems from "./HostVansItems";
-const HostVans = ({ url }) => {
-    const [vans, setVans] = useState(null);
-    const [pending, setPending] = useState(true);
-    useEffect(() => {
-        fetch(url)
-            .then(res => {
-                if (!res.ok) {
-                    throw Error("Server can not fetch the url please try again!");
-                }
-                return res.json();
-            })
-            .then(data => {
-                setPending(false);
-                setVans(data);
-            })
-    }, [url])
+const HostVans = () => {
+    const vans = useLoaderData();
     const hostVansEls = vans && vans.map(van => (
         <Link
             to={van.id}
@@ -29,7 +14,6 @@ const HostVans = ({ url }) => {
     return (
         <section>
             <h1 className="host-vans-title">Your listed vans</h1>
-            {pending && <p>Please Wait for the server...</p>}
             {vans && (
                 <div className="host-vans-list">
                     {
