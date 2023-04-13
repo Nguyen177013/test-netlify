@@ -31,7 +31,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path='vans' element={<Vans url={url} />} loader={loader}/>
       <Route path='vans/:id' element={<VanDetail />} loader={detailLoader}/>
-      <Route path='host' element={<HostLayout />} loader={()=>requireAuth()}>
+      <Route path='host' element={<HostLayout />} loader={({request})=>requireAuth(request)}>
         <Route index element={<Hosts />} />
         <Route path='income' element={<HostIncome />} />
         <Route path='reviews' element={<HostReviews />} />

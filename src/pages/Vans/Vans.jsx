@@ -3,7 +3,8 @@ import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import { useState, useEffect } from "react";
 import VanItems from "../Vans/VanItem";
 import getVans from "../../api";
-export function loader(){
+export function loader(request){
+    console.log(request);
     return getVans();
 }
 const Vans = () => {
